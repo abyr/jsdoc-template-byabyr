@@ -1,6 +1,9 @@
 # jsdoc-template-byabyr
 The template for JSDoc 3 with Search support
 
+[Screenshots](https://github.com/abyr/jsdoc-template-byabyr/wiki)
+
+
 The template uses: [the Taffy Database library](http://taffydb.com/) and the [Underscore Template library](http://documentcloud.github.com/underscore/#template).
 
 
