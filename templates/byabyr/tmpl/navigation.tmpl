@@ -1,0 +1,76 @@
+<?js
+var self = this,
+    allMembers = this.allMembers,
+    printItem, printMembers;
+
+allMemberTypes = [
+    'namespaces', 'modules', 'classes',
+    'externals', 'interfaces', 'globals', 'mixins', 'tutorials', 'events'];
+?>
+
+<div class="navigation">
+    <h3 class="applicationName">
+        <a href="index.html">Home</a>
+    </h3>
+
+    <div class="search">
+        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentation">
+    </div>
+
+    <?js printItemMembers = function (item) {
+        var hasMembers = false;
+
+        ['members', 'methods'].forEach(function (type) { ?>
+            <ul class="<?js= type ?> itemMembers">
+                <?js if (item[type].length) { ?>
+                    <span class="subtitle"><?js= type ?></span>
+                    <?js item[type].forEach(function (v) { ?>
+                        <li data-name="<?js= v.longname ?>">
+                            <?js= self.linkto(v.longname, v.name) ?>
+                        </li>
+                    <?js }); ?>
+                    <?js hasMembers = true; ?>
+                <?js } ?>
+            </ul>
+        <?js }); ?>
+
+        <?js return hasMembers ?>
+    <?js } ?>
+
+    <?js printItem = function (item) { ?>
+        <?js var isEmpty; ?>
+        <li class="item" data-name="<?js= item.longname ?>">
+            <span class="title">
+                <?js= self.linkto(item.longname, item.name) ?>
+                <?js if (item.type === 'namespace') { ?>
+                    <span class="static">static</span>
+                <?js } ?>
+            </span>
+            <?js if (printItemMembers(item)) { ?>
+                <span class='expand-members'>...</span>
+            <?js } ?>
+        </li>
+    <?js }; ?>
+
+    <ul class="list">
+        <?js
+
+        allMemberTypes.forEach(function (type) {
+            items = allMembers.filter(function (item) {
+                return item.type === type;
+            });
+
+            if (!items || !items.length) {
+                return;
+            }
+
+            ?> <h3><?js= type ?></h3> <?js
+
+            items.forEach(function (navItem) {
+                printItem(navItem);
+            });
+        });
+        ?>
+    </ul>
+
+</div>

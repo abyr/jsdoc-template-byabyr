@@ -1,0 +1,89 @@
+.hidden {display: none; }
+
+.navigation {
+  position: fixed;
+}
+.expand-members {
+    font-weight: bold;
+    cursor: pointer;
+    display: inline;
+
+    position: absolute;
+    right: 20px;
+    top: 0;
+}
+
+.navigation h3:first-letter {
+    text-transform:capitalize;
+}
+
+.navigation .applicationName {
+  margin: 0;
+  margin-top: 15px;
+  padding: 10px 15px;
+  font: bold 1.25em Helvetica;
+}
+.navigation .applicationName a {
+  color: #111;
+}
+.navigation .search {
+  padding: 10px 15px;
+}
+.navigation .search input {
+  background-color: #fff;
+  color: #111;
+  border-color: #333;
+}
+.navigation .list {
+  padding: 10px 15px 0 15px;
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+.navigation li.item {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333;
+  position: relative;
+}
+.navigation li.item a {
+  color: #111;
+}
+.navigation li.item a:hover {
+  color: #333;
+}
+.navigation li.item .title {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  font-size: 0.8em;
+}
+.navigation li.item .title a {
+  color: #333;
+}
+.navigation li.item .title a:hover {
+  color: #111;
+}
+.navigation li.item .title .static {
+  display: block;
+  border-radius: 3px;
+  background-color: #779c34;
+  color: #000;
+  font-size: 0.7em;
+  padding: 2px 4px;
+  float: right;
+}
+.navigation li.item .subtitle {
+  margin-top: 10px;
+  font: bold 0.65em Helvetica;
+  color: #779c34;
+  display: block;
+}
+.navigation li.item ul > li {
+  font-size: 0.7em;
+  padding-left: 8px;
+  margin-top: 2px;
+}
+.navigation li.item .itemMembers {
+  display: none;
+}
